@@ -15,15 +15,15 @@ namespace DisplayLibrary
                     if (binary[i].ToString() == "1")
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("1");
+                        Console.WriteLine("·");
                         Console.ForegroundColor = ConsoleColor.Gray;
                     }
                     else
-                        Console.WriteLine("0");
+                        Console.WriteLine("·");
                 }
                 catch (IndexOutOfRangeException)
                 {
-                    Console.WriteLine("0");
+                    Console.WriteLine("·");
                 }
             }
         }
