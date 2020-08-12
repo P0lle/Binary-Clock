@@ -1,6 +1,6 @@
 ﻿using System;
-using TimeLibrary;
 using DisplayLibrary;
+using TimeLibrary;
 
 namespace BinaryClock
 {
@@ -72,7 +72,7 @@ namespace BinaryClock
         {
             if (firstPart)
             {
-                    num = Convert.ToInt32(num.ToString().Substring(0, 1));
+                num = Convert.ToInt32(num.ToString().Substring(0, 1));
             }
             else
             {

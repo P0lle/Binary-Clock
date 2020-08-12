@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryClock", "BinaryClock\BinaryClock.csproj", "{E33CE90E-FB51-497C-B89E-B1600BF8D50E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryClock", "BinaryClock\BinaryClock.csproj", "{E33CE90E-FB51-497C-B89E-B1600BF8D50E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeLibrary", "TimeLibrary\TimeLibrary.csproj", "{F8966CB7-0F84-421A-B845-8CBDE6C5F1C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeLibrary", "TimeLibrary\TimeLibrary.csproj", "{F8966CB7-0F84-421A-B845-8CBDE6C5F1C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayLibrary", "DisplayLibrary\DisplayLibrary.csproj", "{C901CA85-CDF2-44BF-9C9B-025A9E8794B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisplayLibrary", "DisplayLibrary\DisplayLibrary.csproj", "{C901CA85-CDF2-44BF-9C9B-025A9E8794B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

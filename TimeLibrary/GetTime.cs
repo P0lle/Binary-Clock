@@ -78,7 +78,7 @@ namespace TimeLibrary
             }
             return model;
         }
-            
+
         static string IntToBinaryString(int number)
         {
             return Convert.ToString(number, 2);
