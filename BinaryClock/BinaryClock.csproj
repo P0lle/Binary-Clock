@@ -6,8 +6,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Windows.Extensions" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DisplayLibrary\DisplayLibrary.csproj" />
     <ProjectReference Include="..\TimeLibrary\TimeLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Tick.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Tock.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

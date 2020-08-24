@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Media;
 using DisplayLibrary;
 using TimeLibrary;
 
@@ -33,39 +35,55 @@ namespace BinaryClock
             ShowClock.Draw(S10Coords, GetTime.GetSec10());
             ShowClock.Draw(S1Coords, GetTime.GetSec1());
 
-            while (true)
+            do
             {
-                if (H10 != SplitTime(true, DateTime.Now.Hour))
+                while (!Console.KeyAvailable)
                 {
-                    ShowClock.Draw(H10Cords, GetTime.GetHour10());
-                    H10 = SplitTime(true, DateTime.Now.Hour);
+                    if (H10 != SplitTime(true, DateTime.Now.Hour))
+                    {
+                        ShowClock.Draw(H10Cords, GetTime.GetHour10());
+                        H10 = SplitTime(true, DateTime.Now.Hour);
+                    }
+                    if (H1 != SplitTime(false, DateTime.Now.Hour))
+                    {
+                        ShowClock.Draw(H1Coords, GetTime.GetHour1());
+                        H1 = SplitTime(false, DateTime.Now.Hour);
+                    }
+                    if (M10 != SplitTime(true, DateTime.Now.Minute))
+                    {
+                        ShowClock.Draw(M10Coords, GetTime.GetMin10());
+                        M10 = SplitTime(true, DateTime.Now.Minute);
+                    }
+                    if (M1 != SplitTime(false, DateTime.Now.Minute))
+                    {
+                        ShowClock.Draw(M1Coords, GetTime.GetMin1());
+                        M1 = SplitTime(false, DateTime.Now.Minute);
+                    }
+                    if (S10 != SplitTime(true, DateTime.Now.Second))
+                    {
+                        ShowClock.Draw(S10Coords, GetTime.GetSec10());
+                        S10 = SplitTime(true, DateTime.Now.Second);
+                    }
+                    if (S1 != SplitTime(false, DateTime.Now.Second))
+                    {
+                        SoundPlayer sound = new SoundPlayer();
+                        ShowClock.Draw(S1Coords, GetTime.GetSec1());
+                        S1 = SplitTime(false, DateTime.Now.Second);
+                        if (S1 % 2 == 0)
+                        {
+                            sound.SoundLocation = Environment.CurrentDirectory + "/Tick.wav";
+                            sound.Play();
+                        }
+                        else
+                        {
+                            sound.SoundLocation = Environment.CurrentDirectory + "/Tock.wav";
+                            sound.Play();
+                        }
+                    }
                 }
-                if (H1 != SplitTime(false, DateTime.Now.Hour))
-                {
-                    ShowClock.Draw(H1Coords, GetTime.GetHour1());
-                    H1 = SplitTime(false, DateTime.Now.Hour);
-                }
-                if (M10 != SplitTime(true, DateTime.Now.Minute))
-                {
-                    ShowClock.Draw(M10Coords, GetTime.GetMin10());
-                    M10 = SplitTime(true, DateTime.Now.Minute);
-                }
-                if (M1 != SplitTime(false, DateTime.Now.Minute))
-                {
-                    ShowClock.Draw(M1Coords, GetTime.GetMin1());
-                    M1 = SplitTime(false, DateTime.Now.Minute);
-                }
-                if (S10 != SplitTime(true, DateTime.Now.Second))
-                {
-                    ShowClock.Draw(S10Coords, GetTime.GetSec10());
-                    S10 = SplitTime(true, DateTime.Now.Second);
-                }
-                if (S1 != SplitTime(false, DateTime.Now.Second))
-                {
-                    ShowClock.Draw(S1Coords, GetTime.GetSec1());
-                    S1 = SplitTime(false, DateTime.Now.Second);
-                }
-            }
+            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
+
+            TheLastStuff();
         }
 
         static int SplitTime(bool firstPart, int num)
@@ -82,6 +100,55 @@ namespace BinaryClock
                 }
             }
             return num;
+        }
+
+
+
+        static void TheLastStuff()
+        {
+            Console.Clear();
+
+            Vejr vejret = Vejr.Regn;
+            Console.WriteLine($"Dette er fra en enum: {vejret}");
+
+            int refnum = 10;
+            RefMethod(ref refnum);
+            Console.WriteLine($"Dette er fra en ref metode: {refnum}");
+
+            OutMethod(out int outnum);
+            Console.WriteLine($"Dette er fra en out metode: {outnum}");
+
+            ArrayList al = new ArrayList();
+            al.Add("Et");
+            al.Add("To");
+            al.Add("Tre");
+            al.Add("Fire");
+            Console.Write($"Detter er tal fra en arraylist vist med et foreach loop: ");
+            foreach (var tal in al)
+            {
+                Console.Write(tal + " ");
+            }
+
+
+            Console.WriteLine("\nKlik på en vilkårlig knap for at afslutte...");
+            Console.ReadKey(true);
+        }
+        enum Vejr
+        {
+            Regn,
+            Sol,
+            Overskyet
+        }
+
+        static void RefMethod(ref int num)
+        {
+            num = num * 15;
+        }
+
+        static void OutMethod(out int num)
+        {
+            num = 521;
+            num *= num;
         }
     }
 }
