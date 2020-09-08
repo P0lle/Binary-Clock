@@ -1,8 +1,7 @@
 # Binary Clock
 Exam project in basic programming I had to create a binary clock in a C# console application.
 
-## Opgave
-*danish*
+## Assignment Description *Danish*
 Praktisk opgaveH1 Lav et programi c#,der viser et binærur på skærmen
 - Programmet skal hente tiden fra computerens ur
 - Programmet skallaves i Console
